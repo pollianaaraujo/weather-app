@@ -1,0 +1,141 @@
+body {
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.city-info h1 {
+  color: #00175f;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.weather-info-value {
+  color: #00175f;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+.footer-info {
+  color: #666e7d;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.2em;
+  text-align: center;
+  padding-top: 20px;
+  margin-top: auto;
+  border-top: 1px solid #e3ebf4;
+}
+
+.footer-info a {
+  text-decoration: none;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-navbar {
+  border-bottom: 1px solid #e3ebf4;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 60px;
+}
+
+.search-form {
+  margin-left: auto;
+}
+
+.search-form input {
+  background-color: #e3ebf4;
+  color: rgba(0, 23, 95, 0.7);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5em;
+  border: 1px solid #e3ebf4;
+}
+
+.location-button {
+  color: #5f93d6;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5em;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.location-button:hover {
+  color: #00175f;
+}
+
+.city-info {
+  margin-bottom: 30px;
+}
+
+.paragraph-style {
+  color: #666e7d;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2em;
+}
+.today-hour {
+  text-align: center;
+}
+
+.current-weather {
+  align-items: center;
+}
+
+.weather-icon {
+  width: 100%;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.weather-info-temperature {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.weather-info-unit {
+  color: #00175f;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.5em;
+}
+
+.weather-unit-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weather-info-description {
+  margin-bottom: 0;
+}
+
+.weather-details li {
+  list-style: none;
+  color: #666e7d;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2em;
+}
+
+.weather-details span {
+  color: #00175f;
+  font-weight: 500;
+}
