@@ -78,6 +78,8 @@ function updateWeather(response) {
     response.data.weather[0].icon,
     response.data.weather[0].description
   );
+
+  celsiusTemperature = Math.round(response.data.main.temp);
 }
 
 function search(city) {
@@ -109,7 +111,40 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(showTemperatureByLocation);
 }
 
-search("São Paulo");
+function enableAndDisableButtons(buttonA, buttonB) {
+  buttonA.classList.remove("btn-primary");
+  buttonA.classList.add("btn-outline-primary");
+  buttonB.classList.remove("btn-outline-primary");
+  buttonB.classList.add("btn-primary");
+}
+
+function convertFahrenheitUnit(event) {
+  event.preventDefault();
+
+  enableAndDisableButtons(celsiusUnit, fahrenheitUnit);
+
+  let fahrenheitTemperature = document.querySelector("#temperature");
+  fahrenheitTemperature.innerHTML = Math.round(
+    (celsiusTemperature * 9) / 5 + 32
+  );
+}
+
+function convertCelsiusUnit(event) {
+  event.preventDefault();
+
+  enableAndDisableButtons(fahrenheitUnit, celsiusUnit);
+
+  let celsius = document.querySelector("#temperature");
+  celsius.innerHTML = celsiusTemperature;
+}
+
+let celsiusTemperature = null;
+
+let celsiusUnit = document.querySelector("#celsius-button");
+celsiusUnit.addEventListener("click", convertCelsiusUnit);
+
+let fahrenheitUnit = document.querySelector("#fahrenheit-button");
+fahrenheitUnit.addEventListener("click", convertFahrenheitUnit);
 
 let dateAndTime = document.querySelector("#current-time");
 showCurrentDate(dateAndTime);
@@ -119,3 +154,5 @@ searchCity.addEventListener("submit", weatherBySearch);
 
 let locationButton = document.querySelector("#location-info");
 locationButton.addEventListener("click", getLocation);
+
+search("São Paulo");
