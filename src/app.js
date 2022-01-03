@@ -1,3 +1,31 @@
+function updateIcon(icon, description) {
+  const icons = {
+    "01d": "clear-sky-day.svg",
+    "01n": "clear-sky-night.svg",
+    "02d": "few-clouds-day.svg",
+    "02n": "few-clouds-night.svg",
+    "03d": "scattered-clouds.svg",
+    "03n": "scattered-clouds.svg",
+    "04d": "broken-clouds.svg",
+    "04n": "broken-clouds.svg",
+    "09d": "shower-rain.svg",
+    "09n": "shower-rain.svg",
+    "10d": "rain-day.svg",
+    "10n": "rain-night.svg",
+    "11d": "thunderstorm.svg",
+    "11n": "thunderstorm.svg",
+    "13d": "snow.svg",
+    "13n": "snow.svg",
+    "50d": "mist-day.svg",
+    "50n": "mist-night.svg",
+  };
+
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute("alt", description);
+
+  iconElement.setAttribute("src", `images/icons/${icons[icon]}`);
+}
+
 function showCurrentDate(element) {
   let currentDate = new Date();
 
@@ -46,6 +74,11 @@ function updateWeather(response) {
 
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `${Math.round(response.data.main.humidity)}%`;
+
+  updateIcon(
+    response.data.weather[0].icon,
+    response.data.weather[0].description
+  );
 }
 
 function search(city) {
