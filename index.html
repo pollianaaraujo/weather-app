@@ -23,6 +23,10 @@
       rel="stylesheet"
     />
 
+    <!-- Axios Script -->
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <link rel="stylesheet" href="src/style.css" />
 
     <title>Weather App</title>
@@ -33,12 +37,13 @@
         <div class="container">
           <img src="images/logo.svg" alt="kaze logo" />
 
-          <form class="d-flex search-form">
+          <form class="d-flex search-form" id="search-bar">
             <div class="input-group">
               <input
                 type="text"
                 class="form-control"
                 placeholder="Type a city"
+                id="city-input"
               />
               <button
                 class="btn btn-primary search-button"
@@ -49,7 +54,7 @@
               </button>
             </div>
           </form>
-          <a href="#" class="location-button"
+          <a href="#" class="location-button" id="location-info"
             ><img src="images/icon-location.svg" alt="location icon" />
             Use location?
           </a>
@@ -59,8 +64,8 @@
       <div class="container">
         <div class="row">
           <div class="col-12 offset-md-2 col-md-4 city-info">
-            <h1>São Paulo</h1>
-            <p class="today-hour paragraph-style">Sunday, 13:00</p>
+            <h1 id="city"></h1>
+            <p class="today-hour paragraph-style" id="current-time"></p>
           </div>
         </div>
         <div class="row align-items-center justify-content-center">
@@ -76,7 +81,7 @@
               <div class="col-6">
                 <div class="weather-info">
                   <div class="weather-info-temperature">
-                    <h2 class="weather-info-value">32</h2>
+                    <h2 class="weather-info-value" id="temperature"></h2>
                     <span class="weather-info-unit">º</span>
                     <div class="weather-unit-toggle">
                       <button class="btn btn-primary celsius-unit">ºC</button>
@@ -85,7 +90,10 @@
                       </button>
                     </div>
                   </div>
-                  <p class="weather-info-description paragraph-style">Cloudy</p>
+                  <p
+                    class="weather-info-description paragraph-style"
+                    id="weather-description"
+                  ></p>
                 </div>
               </div>
             </div>
@@ -96,15 +104,15 @@
                 <img
                   src="images/icon-feels-like.svg"
                   alt="temperature feels like"
-                />Feels like:<span> 29º</span>
+                />Feels like: <span id="weather-feels"></span>
               </li>
               <li>
                 <img src="images/icon-wind-speed.svg" alt="wind speed" />Wind:
-                <span>12 km/h</span>
+                <span id="wind"></span>
               </li>
               <li>
                 <img src="images/icon-humidity.svg" alt="humidity" />Humidity:
-                <span>70%</span>
+                <span id="humidity"></span>
               </li>
             </ul>
           </div>

@@ -105,7 +105,6 @@ body {
 
 .weather-info-temperature {
   display: flex;
-  width: 100%;
   justify-content: space-between;
   margin-bottom: 15px;
 }
@@ -121,10 +120,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 15px;
 }
 
 .weather-info-description {
   margin-bottom: 0;
+  text-transform: capitalize;
+}
+
+.weather-details .nav {
+  flex-direction: column;
 }
 
 .weather-details li {
