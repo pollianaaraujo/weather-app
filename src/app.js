@@ -56,7 +56,6 @@ function showCurrentDate(element) {
 }
 
 function updateWeather(response) {
-  console.log(response.data);
   let cityName = document.querySelector("#city");
   cityName.innerHTML = response.data.name;
 
