@@ -3,37 +3,6 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.city-info h1 {
-  color: #00175f;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1em;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.weather-info-value {
-  color: #00175f;
-  font-size: 72px;
-  font-weight: 700;
-  line-height: 1em;
-}
-
-.footer-info {
-  color: #666e7d;
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 1.2em;
-  text-align: center;
-  padding-top: 20px;
-  margin-top: auto;
-  border-top: 1px solid #e3ebf4;
-}
-
-.footer-info a {
-  text-decoration: none;
-}
-
 .page {
   display: flex;
   flex-direction: column;
@@ -47,8 +16,13 @@ body {
   margin-bottom: 60px;
 }
 
+.app-navbar .container {
+  display: flex;
+  flex-direction: column;
+}
+
 .search-form {
-  margin-left: auto;
+  margin-top: 15px;
 }
 
 .search-form input {
@@ -66,7 +40,7 @@ body {
   font-weight: 500;
   line-height: 1.5em;
   text-decoration: none;
-  margin-left: 30px;
+  margin-top: 30px;
 }
 
 .location-button:hover {
@@ -77,22 +51,34 @@ body {
   margin-bottom: 30px;
 }
 
+.city-info h1 {
+  color: #00175f;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
 .paragraph-style {
   color: #666e7d;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.2em;
 }
+
 .today-hour {
   text-align: center;
 }
 
 .current-weather {
   align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .weather-icon {
-  width: 100%;
+  width: 100px;
 }
 
 .weather-info {
@@ -107,6 +93,13 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
+}
+
+.weather-info-value {
+  color: #00175f;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1em;
 }
 
 .weather-info-unit {
@@ -130,6 +123,8 @@ body {
 
 .weather-details .nav {
   flex-direction: column;
+  margin-top: 40px;
+  text-align: center;
 }
 
 .weather-details li {
@@ -204,4 +199,44 @@ body {
   font-size: 20px;
   font-weight: 500;
   line-height: 1.5em;
+}
+
+.footer-info {
+  color: #666e7d;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.2em;
+  text-align: center;
+  padding-top: 20px;
+  margin-top: auto;
+  border-top: 1px solid #e3ebf4;
+}
+
+.footer-info a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 992px) {
+  .app-navbar .container {
+    flex-direction: row;
+  }
+
+  .search-form {
+    margin-top: 0;
+    margin-left: auto;
+  }
+
+  .location-button {
+    margin-top: 0;
+    margin-left: 30px;
+  }
+
+  .weather-icon {
+    width: 168px;
+  }
+
+  .weather-details .nav {
+    margin-top: 0;
+    text-align: left;
+  }
 }
