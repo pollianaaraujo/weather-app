@@ -1,4 +1,4 @@
-function updateIcon(icon, description) {
+function updateIcon(iconElement, icon, description) {
   const icons = {
     "01d": "clear-sky-day.svg",
     "01n": "clear-sky-night.svg",
@@ -20,7 +20,6 @@ function updateIcon(icon, description) {
     "50n": "mist-night.svg",
   };
 
-  let iconElement = document.querySelector("#weather-icon");
   iconElement.setAttribute("alt", description);
 
   iconElement.setAttribute("src", `images/icons/${icons[icon]}`);
@@ -55,6 +54,79 @@ function showCurrentDate(element) {
   return message;
 }
 
+function formatForecastDay(timestamp) {
+  let forecastDate = new Date(timestamp * 1000);
+  let forecastDay = forecastDate.getDay();
+  let forecastAllDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return forecastAllDays[forecastDay];
+}
+
+function addForecastInfo(dailyForecast) {
+  let container = document.querySelector("#weather-forecast");
+  let template = document.querySelector("#weather-forecast-template");
+
+  let forecastItem = template.cloneNode(true);
+  forecastItem.id = "";
+  forecastItem.classList.remove("d-none");
+
+  updateIcon(
+    forecastItem.querySelector(".forecast-icon"),
+    dailyForecast.weather[0].icon,
+    dailyForecast.weather[0].description
+  );
+
+  forecastItem.querySelector(".forecast-day").innerHTML = formatForecastDay(
+    dailyForecast.dt
+  );
+
+  forecastItem.querySelector(".forecast-description").innerHTML =
+    dailyForecast.weather[0].main;
+
+  forecastItem.querySelector(
+    ".forecast-maximum-temperature"
+  ).innerHTML = `${Math.round(dailyForecast.temp.max)}º`;
+
+  forecastItem.querySelector(
+    ".forecast-minimum-temperature"
+  ).innerHTML = `${Math.round(dailyForecast.temp.min)}º`;
+
+  container.appendChild(forecastItem);
+}
+
+function clearForecast() {
+  let container = document.querySelector("#weather-forecast");
+  let forecastItems = container.querySelectorAll(".weather-forecast-item");
+
+  forecastItems.forEach((forecastItem) => {
+    if (forecastItem.id == "") {
+      container.removeChild(forecastItem);
+    }
+  });
+}
+
+function updateForecast(response) {
+  let forecast = response.data.daily.slice(1, -1);
+
+  clearForecast();
+  forecast.forEach(addForecastInfo);
+}
+
+function showForecast(coordinates) {
+  let apiKey = "0213a5bacb9c127e38e1f86fb2b9741b";
+  let unit = "metric";
+  let forecastEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=hourly,minutely&units=${unit}&appid=${apiKey}`;
+  axios.get(forecastEndpoint).then(updateForecast);
+}
+
 function updateWeather(response) {
   let cityName = document.querySelector("#city");
   cityName.innerHTML = response.data.name;
@@ -75,21 +147,14 @@ function updateWeather(response) {
   humidity.innerHTML = `${Math.round(response.data.main.humidity)}%`;
 
   updateIcon(
+    document.querySelector("#weather-icon"),
     response.data.weather[0].icon,
     response.data.weather[0].description
   );
 
   celsiusTemperature = Math.round(response.data.main.temp);
-}
 
-function addForecastInfo() {
-  let container = document.querySelector("#weather-forecast");
-  let template = document.querySelector("#weather-forecast-template");
-
-  let forecastItem = template.cloneNode(true);
-  forecastItem.id = "";
-  forecastItem.classList.remove("d-none");
-  container.appendChild(forecastItem);
+  showForecast(response.data.coord);
 }
 
 function search(city) {
