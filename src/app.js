@@ -82,6 +82,16 @@ function updateWeather(response) {
   celsiusTemperature = Math.round(response.data.main.temp);
 }
 
+function addForecastInfo() {
+  let container = document.querySelector("#weather-forecast");
+  let template = document.querySelector("#weather-forecast-template");
+
+  let forecastItem = template.cloneNode(true);
+  forecastItem.id = "";
+  forecastItem.classList.remove("d-none");
+  container.appendChild(forecastItem);
+}
+
 function search(city) {
   let apiKey = "0213a5bacb9c127e38e1f86fb2b9741b";
   let unit = "metric";

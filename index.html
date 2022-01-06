@@ -47,7 +47,7 @@
               />
               <button
                 class="btn btn-primary search-button"
-                type="button"
+                type="submit"
                 id="button-addon2"
               >
                 Search
@@ -119,6 +119,44 @@
                 <span id="humidity"></span>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="forecast">
+          <h3 class="forecast-title">Your Forecast</h3>
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+              <div class="row" id="weather-forecast">
+                <div
+                  class="col-12 col-md-6 d-none weather-forecast-item"
+                  id="weather-forecast-template"
+                >
+                  <div class="forecast-weather-information">
+                    <div class="forecast-icon-section">
+                      <img
+                        src="images/icons/clear-sky-day.svg"
+                        alt=""
+                        class="forecast-icon"
+                      />
+                    </div>
+                    <div class="forecast-weather-summary">
+                      <span class="forecast-day">Monday</span>
+                      <p class="forecast-description">Clear</p>
+                    </div>
+                    <div class="forecast-weather-maximum">
+                      <span class="forecast-max-min">MAX</span>
+                      <p class="forecast-maximum-temperature">31º</p>
+                    </div>
+                    <div class="forecast-weather-minimum">
+                      <span class="forecast-max-min">MIN</span>
+                      <p class="forecast-minimum-temperature">8º</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
