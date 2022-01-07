@@ -244,3 +244,131 @@ body {
     text-align: left;
   }
 }
+
+/* Dark Mode Version */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #101c42;
+  }
+
+  .weather-unit-toggle .btn-primary,
+  .weather-unit-toggle .btn-primary:focus {
+    color: #101c42;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    transition: all 200ms ease-in-out;
+  }
+
+  .weather-unit-toggle .btn-primary:hover,
+  .weather-unit-toggle .btn-primary:active {
+    color: #101c42;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: #ffffff;
+  }
+
+  .weather-unit-toggle .btn-outline-primary,
+  .weather-unit-toggle .btn-outline-primary:focus {
+    color: #ffffff;
+    background-color: #101c42;
+    border-color: #ffffff;
+    transition: all 200ms ease-in-out;
+  }
+
+  .weather-unit-toggle .btn-outline-primary:hover,
+  .weather-unit-toggle .btn-outline-primary:active {
+    color: #ffffff;
+    background-color: rgba(95, 147, 214, 0.6);
+    border-color: #ffffff;
+  }
+
+  .search-button.btn-primary {
+    color: #ffffff;
+    background-color: #101c42;
+    border-color: #ffffff;
+    transition: all 200ms ease-in-out;
+  }
+
+  .search-button.btn-primary:hover {
+    color: #101c42;
+    background-color: #ffffff;
+    border: 1px solid #5f93d6;
+  }
+
+  .app-navbar {
+    border-bottom: 1px solid rgba(95, 147, 214, 0.3);
+  }
+
+  .search-form input {
+    background-color: #ffffff;
+    color: #666e7d;
+    border: 1px solid #ffffff;
+  }
+
+  .location-button {
+    color: #ffffff;
+  }
+
+  .location-button:hover {
+    color: #ffffff;
+    opacity: 0.8;
+  }
+
+  .city-info h1 {
+    color: #ffffff;
+  }
+
+  .paragraph-style {
+    color: #ffffff;
+  }
+
+  .weather-info-value {
+    color: #ffffff;
+  }
+
+  .weather-info-unit {
+    color: #ffffff;
+  }
+
+  .weather-details li {
+    color: #ffffff;
+  }
+
+  .weather-details span {
+    color: #ffffff;
+  }
+
+  .forecast-weather-information {
+    border: 1px solid rgba(95, 147, 214, 0.3);
+  }
+
+  .forecast-title {
+    color: #ffffff;
+  }
+  .forecast-day {
+    color: #ffffff;
+  }
+
+  .forecast-description {
+    color: #ffffff;
+  }
+
+  .forecast-max-min {
+    color: #ffffff;
+  }
+
+  .forecast-maximum-temperature,
+  .forecast-minimum-temperature {
+    color: #ffffff;
+  }
+
+  .footer-info {
+    color: #ffffff;
+    border-top: 1px solid rgba(95, 147, 214, 0.3);
+  }
+
+  .footer-info a {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}

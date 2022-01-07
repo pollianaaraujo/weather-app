@@ -35,7 +35,13 @@
     <div class="page">
       <nav class="navbar navbar-light app-navbar">
         <div class="container">
-          <img src="images/logo.svg" alt="kaze logo" class="logo" id="logo" />
+          <picture>
+            <source
+              srcset="images/logo-dark-mode.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img src="images/logo.svg" alt="kaze logo" class="logo" id="logo" />
+          </picture>
           <form class="d-flex search-form" id="search-bar">
             <div class="input-group">
               <input
@@ -54,8 +60,16 @@
             </div>
           </form>
           <a href="#" class="location-button" id="location-info"
-            ><img src="images/icon-location.svg" alt="location icon" />
-            Use location?
+            ><picture>
+              <source
+                srcset="images/icon-location-dark-mode.svg"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="images/icon-location.svg"
+                alt="location icon"
+              /> </picture
+            >Use location?
           </a>
         </div>
       </nav>
@@ -100,17 +114,38 @@
           <div class="col-12 col-lg-3 offset-lg-1 weather-details">
             <ul class="nav">
               <li>
-                <img
-                  src="images/icon-feels-like.svg"
-                  alt="temperature feels like"
-                />Feels like: <span id="weather-feels"></span>
+                <picture>
+                  <source
+                    srcset="images/icon-feels-like-dark-mode.svg"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img
+                    src="images/icon-feels-like.svg"
+                    alt="temperature feels like"
+                  />
+                </picture>
+                Feels like: <span id="weather-feels"></span>
               </li>
               <li>
-                <img src="images/icon-wind-speed.svg" alt="wind speed" />Wind:
+                <picture>
+                  <source
+                    srcset="images/icon-wind-dark-mode.svg"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img src="images/icon-wind-speed.svg" alt="wind speed" />
+                </picture>
+                Wind:
                 <span id="wind"></span>
               </li>
               <li>
-                <img src="images/icon-humidity.svg" alt="humidity" />Humidity:
+                <picture>
+                  <source
+                    srcset="images/icon-humidity-dark-mode.svg"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img src="images/icon-humidity.svg" alt="humidity" />
+                </picture>
+                Humidity:
                 <span id="humidity"></span>
               </li>
             </ul>
