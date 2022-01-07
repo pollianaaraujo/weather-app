@@ -4,10 +4,10 @@
 
 ## 📃 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Resources](#resources)
-- [Contact](#contact)
+- [Overview](#weather-app#-overview)
+- [Features](weather-app#-features)
+- [Resources](weather-app#-resources)
+- [Contact](weather-app#-contact)
 
 ## ✨ Overview
 
