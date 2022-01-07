@@ -91,13 +91,19 @@ function addForecastInfo(dailyForecast) {
   forecastItem.querySelector(".forecast-description").innerHTML =
     dailyForecast.weather[0].main;
 
-  forecastItem.querySelector(
-    ".forecast-maximum-temperature"
-  ).innerHTML = `${Math.round(dailyForecast.temp.max)}º`;
+  let forecastMax = forecastItem.querySelector(".forecast-maximum-temperature");
+  forecastMax.dataset.celsiusTemperature =
+    Math.round(dailyForecast.temp.max) + "º";
+  forecastMax.dataset.fahrenheitTemperature =
+    Math.round((dailyForecast.temp.max * 9) / 5 + 32) + "º";
+  forecastMax.innerHTML = forecastMax.dataset.celsiusTemperature;
 
-  forecastItem.querySelector(
-    ".forecast-minimum-temperature"
-  ).innerHTML = `${Math.round(dailyForecast.temp.min)}º`;
+  let forecastMin = forecastItem.querySelector(".forecast-minimum-temperature");
+  forecastMin.dataset.celsiusTemperature =
+    Math.round(dailyForecast.temp.min) + "º";
+  forecastMin.dataset.fahrenheitTemperature =
+    Math.round((dailyForecast.temp.min * 9) / 5 + 32) + "º";
+  forecastMin.innerHTML = forecastMin.dataset.celsiusTemperature;
 
   container.appendChild(forecastItem);
 }
@@ -132,13 +138,25 @@ function updateWeather(response) {
   cityName.innerHTML = response.data.name;
 
   let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  temperature.dataset.celsiusTemperature = Math.round(response.data.main.temp);
+  temperature.dataset.fahrenheitTemperature = Math.round(
+    (temperature.dataset.celsiusTemperature * 9) / 5 + 32
+  );
+  temperature.innerHTML = temperature.dataset.celsiusTemperature;
 
   let weatherDescription = document.querySelector("#weather-description");
   weatherDescription.innerHTML = response.data.weather[0].description;
 
   let feelsLike = document.querySelector("#weather-feels");
-  feelsLike.innerHTML = `${Math.round(response.data.main.feels_like)}º`;
+  feelsLike.dataset.celsiusTemperature = `${Math.round(
+    response.data.main.feels_like
+  )}º`;
+
+  feelsLike.dataset.fahrenheitTemperature = `${Math.round(
+    (response.data.main.feels_like * 9) / 5 + 32
+  )}º`;
+
+  feelsLike.innerHTML = feelsLike.dataset.celsiusTemperature;
 
   let windSpeed = document.querySelector("#wind");
   windSpeed.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
@@ -152,9 +170,9 @@ function updateWeather(response) {
     response.data.weather[0].description
   );
 
-  celsiusTemperature = Math.round(response.data.main.temp);
-
   showForecast(response.data.coord);
+
+  disableAndEnableButtons(fahrenheitUnit, celsiusUnit);
 }
 
 function search(city) {
@@ -186,38 +204,40 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(showTemperatureByLocation);
 }
 
-function enableAndDisableButtons(buttonA, buttonB) {
-  buttonA.classList.remove("btn-primary");
-  buttonA.classList.add("btn-outline-primary");
-  buttonB.classList.remove("btn-outline-primary");
-  buttonB.classList.add("btn-primary");
+function disableAndEnableButtons(toEnable, toDisable) {
+  toEnable.classList.remove("btn-primary");
+  toEnable.classList.add("btn-outline-primary");
+  toDisable.classList.remove("btn-outline-primary");
+  toDisable.classList.add("btn-primary");
 }
 
 function convertFahrenheitUnit(event) {
   event.preventDefault();
 
-  enableAndDisableButtons(celsiusUnit, fahrenheitUnit);
+  disableAndEnableButtons(celsiusUnit, fahrenheitUnit);
 
-  let fahrenheitTemperature = document.querySelector("#temperature");
-  fahrenheitTemperature.innerHTML = Math.round(
-    (celsiusTemperature * 9) / 5 + 32
-  );
+  let elements = document.querySelectorAll("[data-celsius-temperature]");
+  elements.forEach((element) => {
+    element.innerHTML = element.dataset.fahrenheitTemperature;
+  });
 }
 
 function convertCelsiusUnit(event) {
   event.preventDefault();
 
-  enableAndDisableButtons(fahrenheitUnit, celsiusUnit);
+  disableAndEnableButtons(fahrenheitUnit, celsiusUnit);
 
-  let celsius = document.querySelector("#temperature");
-  celsius.innerHTML = celsiusTemperature;
+  let elements = document.querySelectorAll("[data-celsius-temperature]");
+  elements.forEach((element) => {
+    element.innerHTML = element.dataset.celsiusTemperature;
+  });
 }
 
 function reloadPage() {
   search("São Paulo");
 }
 
-let celsiusTemperature = null;
+// let celsiusTemperature = null;
 
 let celsiusUnit = document.querySelector("#celsius-button");
 celsiusUnit.addEventListener("click", convertCelsiusUnit);
