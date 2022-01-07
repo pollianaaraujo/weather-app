@@ -4,10 +4,10 @@
 
 ## 📃 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Resources](#resources)
-- [Contact](#contact)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Resources](#-resources)
+- [Contact](#-contact)
 
 ## ✨ Overview
 
