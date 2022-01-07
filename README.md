@@ -18,8 +18,6 @@ This is an application built during a [**SheCodes Plus**](https://www.shecodes.i
 
 ![Project Mockups](https://i.imgur.com/hXVUiff.png)
 
-###[👩🏻‍💻 See the app live!](https://practical-elion-1bd00e.netlify.app/)###
-
 ## 💻 Features
 
 The project includes:
