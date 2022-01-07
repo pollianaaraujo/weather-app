@@ -13,7 +13,12 @@
 
 This is an application built during a [**SheCodes Plus**](https://www.shecodes.io/) workshop with **HTML**, **CSS**, **Javascript** & [**OpenWeather API**](https://openweathermap.org/).
 
+**👩🏻‍💻 See it live!** --->
+[kazeweather.app](https://practical-elion-1bd00e.netlify.app/)
+
 ![Project Mockups](https://i.imgur.com/hXVUiff.png)
+
+###[👩🏻‍💻 See the app live!](https://practical-elion-1bd00e.netlify.app/)###
 
 ## 💻 Features
 
@@ -45,4 +50,3 @@ With you want to talk more about this project, let me know:
 - [SheCodes Profile](https://www.shecodes.io/students/435-polliana-araujo)
 - [Instagram](https://www.instagram.com/pollibud/)
 - [LinkedIn](https://www.linkedin.com/in/pollianaaraujo/)
-- [Twitter](https://twitter.com/pollibud)
