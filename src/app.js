@@ -213,6 +213,10 @@ function convertCelsiusUnit(event) {
   celsius.innerHTML = celsiusTemperature;
 }
 
+function reloadPage() {
+  search("São Paulo");
+}
+
 let celsiusTemperature = null;
 
 let celsiusUnit = document.querySelector("#celsius-button");
@@ -229,5 +233,8 @@ searchCity.addEventListener("submit", weatherBySearch);
 
 let locationButton = document.querySelector("#location-info");
 locationButton.addEventListener("click", getLocation);
+
+let logo = document.querySelector("#logo");
+logo.addEventListener("click", reloadPage);
 
 search("São Paulo");

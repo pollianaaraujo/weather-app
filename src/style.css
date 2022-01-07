@@ -21,6 +21,10 @@ body {
   flex-direction: column;
 }
 
+.logo {
+  cursor: pointer;
+}
+
 .search-form {
   margin-top: 15px;
 }
