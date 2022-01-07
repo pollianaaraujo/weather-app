@@ -3,6 +3,49 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.weather-unit-toggle .btn-primary,
+.weather-unit-toggle .btn-primary:focus {
+  color: #ffffff;
+  background-color: #5f93d6;
+  border-color: #5f93d6;
+  transition: all 200ms ease-in-out;
+}
+
+.weather-unit-toggle .btn-primary:hover,
+.weather-unit-toggle .btn-primary:active {
+  color: #ffffff;
+  background-color: #085ed6;
+  border-color: #5f93d6;
+}
+
+.weather-unit-toggle .btn-outline-primary,
+.weather-unit-toggle .btn-outline-primary:focus {
+  color: #5f93d6;
+  background-color: #ffffff;
+  border-color: #5f93d6;
+  transition: all 200ms ease-in-out;
+}
+
+.weather-unit-toggle .btn-outline-primary:hover,
+.weather-unit-toggle .btn-outline-primary:active {
+  color: #ffffff;
+  background-color: #085ed6;
+  border-color: #5f93d6;
+}
+
+.search-button.btn-primary {
+  color: #ffffff;
+  background-color: #5f93d6;
+  border-color: #5f93d6;
+  transition: all 200ms ease-in-out;
+}
+
+.search-button.btn-primary:hover {
+  color: #ffffff;
+  background-color: #085ed6;
+  border: 1px solid #5f93d6;
+}
+
 .page {
   display: flex;
   flex-direction: column;
@@ -45,10 +88,11 @@ body {
   line-height: 1.5em;
   text-decoration: none;
   margin-top: 30px;
+  transition: all 200ms ease-in-out;
 }
 
 .location-button:hover {
-  color: #00175f;
+  color: #085ed6;
 }
 
 .city-info {
