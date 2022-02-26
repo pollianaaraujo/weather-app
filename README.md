@@ -7,7 +7,7 @@
 - [Overview](#-overview)
 - [Features](#-features)
 - [Resources](#-resources)
-- [Contact](#-contact)
+- [Contact](#%EF%B8%8F-contact)
 
 ## ✨ Overview
 
